@@ -50,7 +50,7 @@ class LoginPage extends React.Component{
   redirect(){
     this.setState({saving:false});
     toastr.success('Login Successfull');
-    this.context.router.push('/courses');
+    this.context.router.push('/expenses');
   }
   render(){
     return (

@@ -115,6 +115,10 @@ class Sidebar extends React.Component{
                 to: 'login'
             },
             {
+              label:'Expense Page',
+              to:'expenses'
+            },
+            {
               label:'Course Page',
               to:'courses'
             }

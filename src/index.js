@@ -9,6 +9,7 @@ import {Router, browserHistory} from 'react-router';
 import routes from './routes';
 import {loadCourses} from './actions/courseActions';
 import {loadAuthors} from './actions/authorActions';
+import {loadExpenses} from './actions/expenseActions';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './styles/bootstrap-social.css';
 import './styles/sb-admin-2.css'; //import sb admin css
@@ -21,6 +22,7 @@ import './styles/nprogress.css';
 const store = configureStore();
 store.dispatch(loadCourses());
 store.dispatch(loadAuthors());
+store.dispatch(loadExpenses());
 render(
   <Provider store={store}>
   <Router history={browserHistory} routes={routes} />

@@ -1,6 +1,6 @@
 import delay from './delay';
 import fetch from 'isomorphic-fetch';
-import request from 'superagent';
+import config from '../config';
 // This file mocks a web API by working with the hard-coded data below.
 // It uses setTimeout to simulate the delay of an AJAX call.
 // All calls return promises.
@@ -37,7 +37,7 @@ class UserApi {
         //    return console.log(res.statusCode);
         //  });
 
-        fetch(`http://127.0.0.1:3000/api/auth`, {
+        fetch(config.host+`/api/auth`, {
 
               method: 'post',
               body: data,
@@ -53,11 +53,12 @@ class UserApi {
                   reject(res.errors);
                 }
                 else{
+                  let token=res.token;
+                  sessionStorage.setItem('_token',token);
                   resolve(res);
                 }
             })
             .catch((err)=>{
-                console.error('Fetch signup ERROR:',err);
                 reject(err);
             });
 
